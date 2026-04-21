@@ -58,7 +58,7 @@ router.post('/', authenticateToken, async (req: AuthRequest, res) => {
     const result = await query(
       `INSERT INTO properties (title, description, city, price, type, image_url, owner_id, amenities)
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
-      [title, description, city, price, type, image_url, owner_id, amenities]
+      [title, description, city, price, type, image_url, owner_id, JSON.stringify(amenities || [])]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {

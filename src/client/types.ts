@@ -19,13 +19,30 @@ export interface Property {
   amenities: string[];
 }
 
+export interface Tour {
+  id: number;
+  title: string;
+  description: string;
+  city: City;
+  price: number;
+  duration: string;
+  images: string[];
+  contacts: string;
+  rating: number;
+  owner_id?: number;
+  created_at?: string;
+  viewed_at?: string;
+}
+
 export interface Review {
-  id: string;
-  propertyId: string;
-  userName: string;
+  id: number;
+  property_id?: number;
+  tour_id?: number;
+  user_id: number;
+  user_name: string;
   rating: number;
   comment: string;
-  date: string;
+  created_at: string;
 }
 
 export interface Message {
